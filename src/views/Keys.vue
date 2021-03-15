@@ -2,7 +2,10 @@
 <div class="home">
 <h1> All keys</h1>
 
-Search by Key name: <input v-model="nameFilter" type="text">
+Search by Key name: <input v-model="nameFilter" type="text" list="key-names">
+<datalist id="key-names">
+  <option v-for="key in keys" v-bind:key="key.id"> {{ key.name }} </option>
+</datalist>
 <div v-for="key in filterBy(keys, nameFilter, 'name')" v-bind:key="key.id">
   <img v-bind:src="key.image_url" alt="" />
   <h2>
