@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Key from "../views/Keys.vue";
+import Map from "../views/Map.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,11 @@ const routes = [
     path: "/keys",
     name: "Keys",
     component: Key,
+  },
+  {
+    path: "/map",
+    name: "Map",
+    component: Map,
   }
 ];
 
