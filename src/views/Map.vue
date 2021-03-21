@@ -44,10 +44,10 @@ export default {
       let xSize = 20;
       let ySize = 20;
 
-      var looseLootIcon = L.icon({
-        iconUrl: "PMCExtract.png",
-        iconSize: [xSize, ySize],
-      });
+      // var looseLootIcon = L.icon({
+      //   iconUrl: "PMCExtract.png",
+      //   iconSize: [xSize, ySize],
+      // });
 
       // Initializes all of the Map Icons as JS variables:
       // var ammoBoxIcon = L.icon({
@@ -95,25 +95,25 @@ export default {
       //   iconSize: [xSize, ySize],
       // });
 
-      // var jacketIcon = L.icon({
-      //   iconUrl: "jacket.png",
-      //   iconSize: [xSize, ySize],
-      // });
+      var jacketIcon = L.icon({
+        iconUrl: "jacket.png",
+        iconSize: [xSize, ySize],
+      });
 
       // var keyIcon = L.icon({
       //   iconUrl: "key.png",
       //   iconSize: [xSize, ySize],
       // });
 
-      // var looseLootIcon = L.icon({
-      //   iconUrl: "looseloot.png",
-      //   iconSize: [xSize, ySize],
-      // });
+      var looseLootIcon = L.icon({
+        iconUrl: "looseloot.png",
+        iconSize: [xSize, ySize],
+      });
 
-      // var medBagIcon = L.icon({
-      //   iconUrl: "medbag.png",
-      //   iconSize: [xSize, ySize],
-      // });
+      var medBagIcon = L.icon({
+        iconUrl: "medbag.png",
+        iconSize: [xSize, ySize],
+      });
 
       // var pmcSpawnIcon = L.icon({
       //   iconUrl: "PMCSpawn.png",
@@ -135,10 +135,10 @@ export default {
       //   iconSize: [xSize, ySize],
       // });
 
-      // var sportsBagIcon = L.icon({
-      //   iconUrl: "sportsbag.png",
-      //   iconSize: [xSize, ySize],
-      // })
+      var sportsBagIcon = L.icon({
+        iconUrl: "sportsbag.png",
+        iconSize: [xSize, ySize],
+      });
 
       // var stashIcon = L.icon({
       //   iconUrl: "stash.png",
@@ -150,29 +150,29 @@ export default {
       //   iconSize: [xSize, ySize],
       // });
 
-      // var weaponBoxIcon = L.icon({
-      //   iconUrl: "weaponbox.png",
-      //   iconSize: [xSize, ySize],
-      // });
+      var weaponBoxIcon = L.icon({
+        iconUrl: "weaponbox.png",
+        iconSize: [xSize, ySize],
+      });
 
       // var scavSniperIcon = L.icon({
       //   iconUrl: "scavsniper.png",
       //   iconSize: [xSize, ySize],
       // });
 
-      // var woodenCrateIcon = L.icon({
-      //   iconUrl: "wooden-crate.png",
-      //   iconSize: [xSize, ySize],
-      // });
+      var woodenCrateIcon = L.icon({
+        iconUrl: "wooden-crate.png",
+        iconSize: [xSize, ySize],
+      });
 
-      // var deadScavIcon = L.icon({
-      //   iconUrl: "deadscav.png",
-      //   iconSize: [xSize, ySize],
-      // });
+      var deadScavIcon = L.icon({
+        iconUrl: "deadscav.png",
+        iconSize: [xSize, ySize],
+      });
 
       // Initializes icon object:
 
-      searchableObjectIndex = {
+      let searchableObjectIndex = {
         "Wooden Crate": woodenCrateIcon,
         "Weapon Box/Rack": weaponBoxIcon,
         Jacket: jacketIcon,
@@ -180,10 +180,10 @@ export default {
         "Sports Bag": sportsBagIcon,
         "Dead Scav": deadScavIcon,
         "Med Bag": medBagIcon,
-        Drawers: drawerIcon,
-        PC: computerIcon,
-        Safe: safeIcon,
-        Stash: stashIcon,
+        // Drawers: drawerIcon,
+        // PC: computerIcon,
+        // Safe: safeIcon,
+        // Stash: stashIcon,
       };
 
       // Creates markers for searchable objects on the map:
@@ -191,7 +191,9 @@ export default {
       let i = 0;
       while (i < this.searchableobjects.length) {
         if (this.searchableobjects[i].y_coor && this.searchableobjects[i].x_coor) {
-          L.marker([this.searchableobjects[i].y_coor, this.searchableobjects[i].x_coor], { icon: looseLootIcon })
+          L.marker([this.searchableobjects[i].y_coor, this.searchableobjects[i].x_coor], {
+            icon: searchableObjectIndex[this.searchableobjects[i].object_name.trim()],
+          })
             .addTo(map)
             .bindPopup(this.searchableobjects[i].description);
         }
